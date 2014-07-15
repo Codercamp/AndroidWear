@@ -60,7 +60,10 @@ public class MenuService extends Service {
             notificationPages.add(builder.build());
         }
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+            .setContentTitle(mMenu.titleText)
+            .setContentText(getString(R.string.notification_order))
+            .setSmallIcon(R.mipmap.ic_notification);
 
         if (mMenu.image != null) {
             Bitmap image = Bitmap.createScaledBitmap(
@@ -68,9 +71,6 @@ public class MenuService extends Service {
                     Constants.NOTIFICATION_IMAGE_WIDTH, Constants.NOTIFICATION_IMAGE_HEIGHT, false);
             builder.setLargeIcon(image);
         }
-        builder.setContentTitle(mMenu.titleText);
-        builder.setContentText(getString(R.string.notification_order));
-        builder.setSmallIcon(R.mipmap.ic_notification);
 
         Notification notification = builder
                 .extend(new NotificationCompat.WearableExtender()
