@@ -19,3 +19,6 @@
 proguard-rules.txt  text    eol=lf
 gradlew             text    eol=lf
 gradle-wrapper.properties   text    eol=lf
+BeerActivity.java   text    eol=crlf
+activity_beer.xml   text    eol=crlf
+dimens.xml          text    eol=crlf

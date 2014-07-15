@@ -49,12 +49,17 @@ public class MenuService extends Service {
         viewIntent.putExtra(Constants.RESTAURANT_TO_LOAD, menu.json);  // This is the restaurant name
         PendingIntent viewPendingIntent = PendingIntent.getActivity(this, 0, viewIntent, 0);
 
+        // Add a button to purchase a beer
+        Intent beerIntent = new Intent(this, BeerActivity.class);
+        PendingIntent beerPendingIntent = PendingIntent.getActivity(this, 0, beerIntent, 0);
+
         // Create the notification
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
             .setContentTitle(menu.titleText)
             .setContentText(getString(R.string.notification_order))
             .setSmallIcon(R.mipmap.ic_notification)
-            .setContentIntent(viewPendingIntent);
+            .setContentIntent(viewPendingIntent)
+            .addAction(R.mipmap.ic_notification, getString(R.string.order_beer), beerPendingIntent);
 
         // If we have a restaurant image, add it as the background image to the notification
         if (menu.image != null) {
