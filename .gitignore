@@ -1,0 +1,5 @@
+.gradle/
+.idea/
+Application/build/
+build/intermediates/
+local.properties

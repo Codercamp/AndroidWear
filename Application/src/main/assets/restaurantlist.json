@@ -1,0 +1,23 @@
+{
+restaurant_list:
+[
+{
+name: "pheasant.json",
+summary: "I'm not the pheasant plucker, I'm the pheasant plucker's son, sitting plucking pheasants 'till the pheasant plucker comes",
+title: "The Pheasant Plucker",
+img: "pheasant.jpg"
+},
+{
+name: "ship.json",
+summary: "Come in every Monday for $5.50 pints all day and all night",
+title: "The Ship",
+img: "ship.jpg"
+},
+{
+name: "judge.json",
+summary: "Microbrewery beer tastes better! To that end, we offer nothing but premium quality, great-tasting beers on our 22 taps and 1 beer engine.",
+title: "Winking Judge",
+img: "judge.jpg"
+}
+]
+}

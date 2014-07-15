@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Feed Me</string>
+    <string name="action_order">Order</string>
+    <string name="items">Menu Items</string>
+    <string name="item_count">Item %1$d of %2$d</string>
+</resources>

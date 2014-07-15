@@ -1,0 +1,28 @@
+{
+name: "judge.json",
+summary: "Microbrewery beer tastes better! To that end, we offer nothing but premium quality, great-tasting beers on our 22 taps and 1 beer engine.",
+title: "Winking Judge",
+img: "judge.jpg",
+menu_items: [
+{
+name: "Hops and Bolts",
+price: 6.99
+},
+{
+name: "Bison Burger",
+price: 11
+},
+{
+name: "Buffalo Wings",
+price: 11
+},
+{
+name: "Fish and Chips",
+price: 10
+},
+{
+name: "Caesar Salad",
+price: 9
+}
+]
+}

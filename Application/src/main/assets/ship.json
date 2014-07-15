@@ -1,0 +1,28 @@
+{
+name: "ship.json",
+summary: "Come in every Monday for $5.50 pints all day and all night",
+title: "The Ship",
+img: "ship.jpg",
+menu_items: [
+{
+name: "Hops and Bolts",
+price: 6.99
+},
+{
+name: "Bison Burger",
+price: 11
+},
+{
+name: "Buffalo Wings",
+price: 11
+},
+{
+name: "Fish and Chips",
+price: 10
+},
+{
+name: "Caesar Salad",
+price: 9
+}
+]
+}
