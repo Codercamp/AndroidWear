@@ -6,6 +6,7 @@ public final class Constants {
     public static final String RESTAURANT_LIST_FILE = "restaurantlist.json";
     public static final String RESTAURANT_TO_LOAD = "restaurant_name";
 
+    public static final String RESTAURANT_FIELD_JSON = "restaurant_json";
     public static final String RESTAURANT_FIELD_LIST = "restaurant_list";
     public static final String RESTAURANT_FIELD_NAME = "name";
     public static final String RESTAURANT_FIELD_SUMMARY = "summary";

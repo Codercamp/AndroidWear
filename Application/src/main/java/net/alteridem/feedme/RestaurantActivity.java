@@ -63,9 +63,12 @@ public class RestaurantActivity extends Activity {
     }
 
     private void loadMenu() {
+        if ( mRestaurantName == null )
+            return;
+
         JSONObject jsonObject = AssetUtils.loadJSONAsset(this, mRestaurantName);
         if (jsonObject != null) {
-            mMenu = Menu.fromJson(this, jsonObject);
+            mMenu = Menu.fromJson(this, jsonObject, mRestaurantName);
             if (mMenu != null) {
                 displayMenu(mMenu);
             }

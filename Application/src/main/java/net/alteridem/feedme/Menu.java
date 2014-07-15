@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Menu {
     private static final String TAG = "FeedMe";
 
+    public String json;
     public String titleText;
     public String summaryText;
     public String image;
@@ -43,9 +44,10 @@ public class Menu {
         menuItems = new ArrayList<MenuItem>();
     }
 
-    public static Menu fromJson(Context context, JSONObject json) {
+    public static Menu fromJson(Context context, JSONObject json, String jsonName) {
         Menu menu = new Menu();
         try {
+            menu.json = jsonName;
             menu.titleText = json.getString(Constants.RESTAURANT_FIELD_TITLE);
             menu.summaryText = json.getString(Constants.RESTAURANT_FIELD_SUMMARY);
             if (json.has(Constants.RESTAURANT_FIELD_IMAGE)) {
@@ -69,6 +71,7 @@ public class Menu {
 
     public Bundle toBundle() {
         Bundle bundle = new Bundle();
+        bundle.putString(Constants.RESTAURANT_FIELD_JSON, json);
         bundle.putString(Constants.RESTAURANT_FIELD_TITLE, titleText);
         bundle.putString(Constants.RESTAURANT_FIELD_SUMMARY, summaryText);
         bundle.putString(Constants.RESTAURANT_FIELD_IMAGE, image);
@@ -84,6 +87,7 @@ public class Menu {
 
     public static Menu fromBundle(Bundle bundle) {
         Menu menu = new Menu();
+        menu.json = bundle.getString(Constants.RESTAURANT_FIELD_JSON);
         menu.titleText = bundle.getString(Constants.RESTAURANT_FIELD_TITLE);
         menu.summaryText = bundle.getString(Constants.RESTAURANT_FIELD_SUMMARY);
         menu.image = bundle.getString(Constants.RESTAURANT_FIELD_IMAGE);

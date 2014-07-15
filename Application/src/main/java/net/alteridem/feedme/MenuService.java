@@ -1,6 +1,7 @@
 package net.alteridem.feedme;
 
 import android.app.Notification;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -14,7 +15,6 @@ import java.util.ArrayList;
 public class MenuService extends Service {
     private NotificationManagerCompat mNotificationManager;
     private Binder mBinder = new LocalBinder();
-    private Menu mMenu;
 
     public class LocalBinder extends Binder {
         MenuService getService() {
@@ -42,40 +42,31 @@ public class MenuService extends Service {
     }
 
     private void createNotification(Intent intent) {
-        mMenu = Menu.fromBundle(intent.getBundleExtra(Constants.EXTRA_RESTAURANT));
-        ArrayList<Notification> notificationPages = new ArrayList<Notification>();
+        Menu menu = Menu.fromBundle(intent.getBundleExtra(Constants.EXTRA_RESTAURANT));
 
-        int stepCount = mMenu.menuItems.size();
+        // Create an intent to launch back to the menu on the phone (My extra is not coming back, why?)
+        Intent viewIntent = new Intent(this, RestaurantActivity.class);
+        viewIntent.putExtra(Constants.RESTAURANT_TO_LOAD, menu.json);  // This is the restaurant name
+        PendingIntent viewPendingIntent = PendingIntent.getActivity(this, 0, viewIntent, 0);
 
-        // TODO: Replace steps with menu items
-        for (int i = 0; i < stepCount; ++i) {
-            Menu.MenuItem menuItem = mMenu.menuItems.get(i);
-            NotificationCompat.BigTextStyle style = new NotificationCompat.BigTextStyle();
-            style.bigText(menuItem.name);
-            style.setBigContentTitle(String.format(
-                    getResources().getString(R.string.item_count), i + 1, stepCount));
-            style.setSummaryText("");
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-            builder.setStyle(style);
-            notificationPages.add(builder.build());
-        }
-
+        // Create the notification
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
-            .setContentTitle(mMenu.titleText)
+            .setContentTitle(menu.titleText)
             .setContentText(getString(R.string.notification_order))
-            .setSmallIcon(R.mipmap.ic_notification);
+            .setSmallIcon(R.mipmap.ic_notification)
+            .setContentIntent(viewPendingIntent);
 
-        if (mMenu.image != null) {
+        // If we have a restaurant image, add it as the background image to the notification
+        if (menu.image != null) {
             Bitmap image = Bitmap.createScaledBitmap(
-                    AssetUtils.loadBitmapAsset(this, mMenu.image),
+                    AssetUtils.loadBitmapAsset(this, menu.image),
                     Constants.NOTIFICATION_IMAGE_WIDTH, Constants.NOTIFICATION_IMAGE_HEIGHT, false);
             builder.setLargeIcon(image);
         }
 
-        Notification notification = builder
-                .extend(new NotificationCompat.WearableExtender()
-                        .addPages(notificationPages))
-                .build();
-        mNotificationManager.notify(Constants.NOTIFICATION_ID, notification);
+        // Send the notification
+        Notification notification = builder.build();
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        notificationManager.notify(Constants.NOTIFICATION_ID, notification);
     }
 }
