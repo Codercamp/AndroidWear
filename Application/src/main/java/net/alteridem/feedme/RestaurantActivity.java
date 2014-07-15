@@ -32,13 +32,13 @@ public class RestaurantActivity extends Activity {
         if (Log.isLoggable(TAG, Log.DEBUG)) {
             Log.d(TAG, "Intent: " + intent.toString() + " " + mRestaurantName);
         }
-        loadRecipe();
+        loadMenu();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.recipe);
+        setContentView(R.layout.menu);
         mTitleTextView = (TextView) findViewById(R.id.restaurantTextTitle);
         mSummaryTextView = (TextView) findViewById(R.id.restaurantTextSummary);
         mImageView = (ImageView) findViewById(R.id.restaurantImageView);
@@ -62,7 +62,7 @@ public class RestaurantActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void loadRecipe() {
+    private void loadMenu() {
         JSONObject jsonObject = AssetUtils.loadJSONAsset(this, mRestaurantName);
         if (jsonObject != null) {
             mMenu = Menu.fromJson(this, jsonObject);

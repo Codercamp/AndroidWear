@@ -62,7 +62,7 @@ public class RestaurantListAdapter implements ListAdapter {
                 result.add(parsed);
             }
         } catch (JSONException e) {
-            Log.e(TAG, "Failed to parse recipe list: " + e);
+            Log.e(TAG, "Failed to parse menu list: " + e);
         }
         return result;
     }

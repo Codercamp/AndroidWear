@@ -69,8 +69,8 @@ public class MenuService extends Service {
             builder.setLargeIcon(image);
         }
         builder.setContentTitle(mMenu.titleText);
-        builder.setContentText(mMenu.summaryText);
-        builder.setSmallIcon(R.mipmap.ic_notification_recipe);
+        builder.setContentText(getString(R.string.notification_order));
+        builder.setSmallIcon(R.mipmap.ic_notification);
 
         Notification notification = builder
                 .extend(new NotificationCompat.WearableExtender()
