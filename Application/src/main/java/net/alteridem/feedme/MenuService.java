@@ -34,7 +34,7 @@ public class MenuService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (intent.getAction().equals(Constants.ACTION_START_MENU)) {
+        if (intent != null && intent.getAction().equals(Constants.ACTION_START_MENU)) {
             createNotification(intent);
             return START_STICKY;
         }
