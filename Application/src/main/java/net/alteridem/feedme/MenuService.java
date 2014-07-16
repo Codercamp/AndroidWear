@@ -7,13 +7,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Binder;
 import android.os.IBinder;
-import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.app.NotificationCompat;
-
-import java.util.ArrayList;
+import android.support.v4.app.NotificationManagerCompat;
 
 public class MenuService extends Service {
-    private NotificationManagerCompat mNotificationManager;
     private Binder mBinder = new LocalBinder();
 
     public class LocalBinder extends Binder {
@@ -24,7 +21,6 @@ public class MenuService extends Service {
 
     @Override
     public void onCreate() {
-        mNotificationManager = NotificationManagerCompat.from(this);
     }
 
     @Override
@@ -59,7 +55,7 @@ public class MenuService extends Service {
             .setContentText(getString(R.string.notification_order))
             .setSmallIcon(R.mipmap.ic_notification)
             .setContentIntent(viewPendingIntent)
-            .addAction(R.mipmap.ic_notification, getString(R.string.order_beer), beerPendingIntent);
+            .addAction(R.drawable.ic_notification_full, getString(R.string.order_beer), beerPendingIntent);
 
         // If we have a restaurant image, add it as the background image to the notification
         if (menu.image != null) {
