@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Binder;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
@@ -17,10 +18,6 @@ public class MenuService extends Service {
         MenuService getService() {
             return MenuService.this;
         }
-    }
-
-    @Override
-    public void onCreate() {
     }
 
     @Override
@@ -45,18 +42,32 @@ public class MenuService extends Service {
         viewIntent.putExtra(Constants.RESTAURANT_TO_LOAD, menu.json);  // This is the restaurant name
         PendingIntent viewPendingIntent = PendingIntent.getActivity(this, 0, viewIntent, 0);
 
+        // Demo how to add wearable options
+        NotificationCompat.WearableExtender wearableOptions = new NotificationCompat.WearableExtender();
+
         // Add a button to purchase a beer
         Intent beerIntent = new Intent(this, BeerActivity.class);
         PendingIntent beerPendingIntent = PendingIntent.getActivity(this, 0, beerIntent, 0);
+        NotificationCompat.Action beerAction = new NotificationCompat.Action(R.drawable.ic_notification_full, getString(R.string.order_beer), beerPendingIntent);
+        wearableOptions.addAction(beerAction);
+
+        // Show how to add a second page
+        NotificationCompat.Builder secondPageBuilder = new NotificationCompat.Builder(this);
+        secondPageBuilder.setContentTitle(menu.titleText);
+        secondPageBuilder.setContentText(menu.summaryText);
+        wearableOptions.addPage(secondPageBuilder.build());
 
         // Create the notification
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
             .setContentTitle(menu.titleText)
             .setContentText(getString(R.string.notification_order))
             .setSmallIcon(R.mipmap.ic_notification)
-            .setVibrate(new long[] {0, 100, 50, 100})
-            .setContentIntent(viewPendingIntent)
-            .addAction(R.drawable.ic_notification_full, getString(R.string.order_beer), beerPendingIntent);
+            .setVibrate(new long[]{0, 500, 250, 500, 250, 500})
+            .setLights(Color.YELLOW, 500, 500)
+            .setOnlyAlertOnce(true)
+            .setPriority(5)
+            .extend(wearableOptions)
+            .setContentIntent(viewPendingIntent);
 
         // If we have a restaurant image, add it as the background image to the notification
         if (menu.image != null) {
