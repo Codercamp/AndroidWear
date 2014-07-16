@@ -44,7 +44,7 @@ public class MenuService extends Service {
     private void createNotification(Intent intent) {
         Menu menu = Menu.fromBundle(intent.getBundleExtra(Constants.EXTRA_RESTAURANT));
 
-        // Create an intent to launch back to the menu on the phone (My extra is not coming back, why?)
+        // Create an intent to launch back to the menu on the phone
         Intent viewIntent = new Intent(this, RestaurantActivity.class);
         viewIntent.putExtra(Constants.RESTAURANT_TO_LOAD, menu.json);  // This is the restaurant name
         PendingIntent viewPendingIntent = PendingIntent.getActivity(this, 0, viewIntent, 0);
