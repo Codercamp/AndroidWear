@@ -21,6 +21,6 @@ public final class Constants {
     public static final String EXTRA_RESTAURANT = "restaurant";
 
     public static final int NOTIFICATION_ID = 0;
-    public static final int NOTIFICATION_IMAGE_WIDTH = 320;
-    public static final int NOTIFICATION_IMAGE_HEIGHT = 320;
+    public static final int NOTIFICATION_IMAGE_WIDTH = 280;
+    public static final int NOTIFICATION_IMAGE_HEIGHT = 280;
 }

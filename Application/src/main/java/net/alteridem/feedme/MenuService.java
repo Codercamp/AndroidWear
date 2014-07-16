@@ -54,6 +54,7 @@ public class MenuService extends Service {
             .setContentTitle(menu.titleText)
             .setContentText(getString(R.string.notification_order))
             .setSmallIcon(R.mipmap.ic_notification)
+            .setVibrate(new long[] {0, 100, 50, 100})
             .setContentIntent(viewPendingIntent)
             .addAction(R.drawable.ic_notification_full, getString(R.string.order_beer), beerPendingIntent);
 
