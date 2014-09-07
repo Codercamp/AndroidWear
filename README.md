@@ -2,7 +2,8 @@
 
 A demo Android Wear application for CoderCamp Hamilton.
 
-This app prototypes an Pub application that lists the pubs closest to you, allows you to view their menus and order. 
+This app prototypes an Pub application that lists the 
+pubs closest to you, allows you to view their menus and order. 
 
 To demonstrate extending notifications for Android Wear, I simulate a notification when you arrive at a pub that asks if you want to order a beer. It allows you to order, or view the full menu on your phone.
 
