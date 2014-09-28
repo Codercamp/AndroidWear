@@ -11,6 +11,7 @@ if you want to order a beer. It allows you to order, or view
 the full menu on your phone.
 
 In a real system, your order would then be transmitted to 
-the pub, possibly paid for through Google Wallet and your order would be waiting for you.
+the pub, possibly paid for through Google Wallet and your 
+order would be waiting for you.
 
 In an ideal system, the waitress could even have a Google Glass application that shows your image and a directional arrow to you when she picks up your order.
