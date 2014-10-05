@@ -15,4 +15,5 @@ the pub, possibly paid for through Google Wallet and your
 order would be waiting for you.
 
 In an ideal system, the waitress could even have a Google 
-Glass application that shows your image and a directional arrow to you when she picks up your order.
+Glass application that shows your image and a directional 
+arrow to you when she picks up your order.
