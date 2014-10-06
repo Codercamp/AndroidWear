@@ -1,4 +1,6 @@
-## CoderCamp 22 - Android Wear Prototype ##
+## CoderCamp 22 ##
+
+### Android Wear Prototype ###
 
 A demo Android Wear application for CoderCamp Hamilton.
 
