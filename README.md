@@ -1,6 +1,6 @@
-## CoderCamp 22 ##
+## CoderCamp 22
 
-### Android Wear Prototype ###
+### Android Wear Prototype
 
 A demo Android Wear application for CoderCamp Hamilton.
 
@@ -20,16 +20,16 @@ In an ideal system, the waitress could even have a Google
 Glass application that shows your image and a directional 
 arrow to you when she picks up your order.
 
-### Screenshots ###
+### Screenshots
 
-#### Main Screen #### 
+#### Main Screen
 
 ![Main Screen](/images/mobile1.png)
 
-#### Detail Screen #### 
+#### Detail Screen
 
 ![Detail Screen](/images/mobile2.png)
 
-#### Watch Screen #### 
+#### Watch Screen
 
 ![Watch Screen](/images/shot3.png)
